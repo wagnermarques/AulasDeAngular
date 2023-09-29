@@ -1,0 +1,269 @@
+#+Title: Aulas de Angulas
+
+* Apresentacao desse material
+Ao querido visitante... seja muitíssimo bem vindo..
+
+Esse material é utilizado em sala de aula, mas se vc conseguir usar
+ele sem  a orientação de um professor então show de bola.. va em
+frente...
+
+Ajustes necessarios, que há muitos, serao realizados assim que eu
+puder... Vc também pode ajudar nisso... :))
+
+* Criando um projeto Angular
+
+** Vc ja esta com o node instalado?
+#+NAME:  npm -v && node -v
+#+BEGIN_SRC shell :session s1 :results output :exports both 
+ npm -v && node -v
+#+END_SRC
+
+#+RESULTS: y
+: 
+: 9.6.7
+: v18.17.0
+
+*** TODO Como eu instalado no windows?
+*** TODO Como eu instalado no linux?
+
+** Com o node instalado, instale o cliente do angular[fn:1]
+
+#+NAME:  npm install -g @angular/cli
+#+BEGIN_SRC shell :session s1 :results output :exports both 
+npm install -g @angular/cli
+#+END_SRC
+
+Confere se sua instalacao ta ok...
+
+#+NAME:  ng --help && ng new --help
+#+BEGIN_SRC shell :session s1 :results output :exports both 
+ng --help && ng new --help
+#+END_SRC
+
+#+RESULTS: ng --help && ng new --help
+#+begin_example
+
+Commands:
+Adds support for an external library to your project.
+  ng analytics                   Configures the gathering of Angular CLI usage metrics.
+  ng build [project]             Compiles an Angular application or library into an output directory named dist/ at the given output path.  [aliases: b]
+  ng cache                       Configure persistent disk cache and retrieve cache statistics.
+  ng completion                  Set up Angular CLI autocompletion for your terminal.
+  ng config [json-path] [value]  Retrieves or sets Angular configuration values in the angular.json file for the workspace.
+  ng deploy [project]            Invokes the deploy builder for a specified project or for the default project in the workspace.
+Opens the official Angular documentation (angular.io) in a browser, and searches for a given keyword.  [aliases: d]
+  ng e2e [project]               Builds and serves an Angular application, then runs end-to-end tests.  [aliases: e]
+  ng extract-i18n [project]      Extracts i18n messages from source code.
+  ng generate                    Generates and/or modifies files based on a schematic.  [aliases: g]
+  ng lint [project]              Runs linting tools on Angular application code in a given project folder.
+  ng new [name]                  Creates a new Angular workspace.  [aliases: n]
+Runs an Architect target with an optional custom builder configuration defined in your project.
+  ng serve [project]             Builds and serves your application, rebuilding on file changes.  [aliases: s]
+  ng test [project]              Runs unit tests in a project.  [aliases: t]
+  ng update [packages..]         Updates your workspace and its dependencies. See https://update.angular.io/.
+  ng version                     Outputs Angular CLI version.  [aliases: v]
+
+Options:
+  --help  Shows a help message for this command in the console.  [boolean]
+
+For more information, see https://angular.io/cli/.
+ng new [name]
+
+Creates a new Angular workspace.
+
+Arguments:
+  name  The name of the new workspace and initial project.  [string]
+
+Options:
+      --help                Shows a help message for this command in the console.  [boolean]
+      --interactive         Enable interactive input prompts.  [boolean] [default: true]
+      --dry-run             Run through and reports activity without writing out results.  [boolean] [default: false]
+      --defaults            Disable interactive input prompts for options with a default.  [boolean] [default: false]
+      --force               Force overwriting of existing files.  [boolean] [default: false]
+  -c, --collection          A collection of schematics to use in generating the initial application.  [string]
+      --commit              Initial git repository commit information.  [boolean] [default: true]
+      --create-application  Create a new initial application project in the 'src' folder of the new workspace. When false, creates an empty workspace with no initial application. You can then use the generate application command so that all applications are created in the projects folder.  [boolean] [default: true]
+      --directory           The directory name to create the workspace in.  [string]
+  -s, --inline-style        Include styles inline in the component TS file. By default, an external styles file is created and referenced in the component TypeScript file.  [boolean]
+  -t, --inline-template     Include template inline in the component TS file. By default, an external template file is created and referenced in the component TypeScript file.  [boolean]
+      --minimal             Create a workspace without any testing frameworks. (Use for learning purposes only.)  [boolean] [default: false]
+      --new-project-root    The path where new projects will be created, relative to the new workspace root.  [string] [default: "projects"]
+      --package-manager     The package manager used to install dependencies.  [string] [choices: "npm", "yarn", "pnpm", "cnpm"]
+  -p, --prefix              The prefix to apply to generated selectors for the initial project.  [string] [default: "app"]
+      --routing             Generate a routing module for the initial project.  [boolean]
+  -g, --skip-git            Do not initialize a git repository.  [boolean] [default: false]
+      --skip-install        Do not install dependency packages.  [boolean] [default: false]
+  -S, --skip-tests          Do not generate "spec.ts" test files for the new project.  [boolean] [default: false]
+      --standalone          Creates an application based upon the standalone API, without NgModules.  [boolean] [default: false]
+      --strict              Creates a workspace with stricter type checking and stricter bundle budgets settings. This setting helps improve maintainability and catch bugs ahead of time. For more information, see https://angular.io/guide/strict-mode  [boolean] [default: true]
+      --style               The file extension or preprocessor to use for style files.  [string] [choices: "css", "scss", "sass", "less"]
+      --view-encapsulation  The view encapsulation strategy to use in the initial project.  [string] [choices: "Emulated", "None", "ShadowDom"]
+#+end_example
+
+
+** Agora vc pode criar seu projeto angular[fn:1]
+escolha um diretorio onde vc quer criar, va ate la na linha de
+comandao e de  o comando "ng new my-first-project" que realmente cria
+o projeto.
+
+
+Eu vou escolher esse diretorio abaixo e criar meu projeto dentro dele
+
+#+NAME:  
+#+BEGIN_SRC shell :session s1 :results output :exports both 
+echo $(pwd)
+#+END_SRC
+
+#+RESULTS: 
+: /home/spot/mnt/ext4/env-Projects-Aulas/AulasDeAngular
+
+#+NAME:  ng new projeto1angular
+#+BEGIN_SRC shell :session s1 :results output :exports both 
+  mkdir -p /home/spot/mnt/ext4/env-Projects-Aulas/AulasDeAngular/projetos &&
+  cd /home/spot/mnt/ext4/env-Projects-Aulas/AulasDeAngular/projetos && 
+  ng new projeto1angular
+#+END_SRC
+
+SEgue abaixo o output da criacao do meu primeiro projeto...
+
+#+begin_example
+[spot@fedora AulasDeAngular]$ cd cd /home/spot/mnt/ext4/env-Projects-Aulas/AulasDeAngular/projetos
+bash: cd: número excessivo de argumentos
+[spot@fedora AulasDeAngular]$ ls
+ projetos  '#README.org#'   README.org
+[spot@fedora AulasDeAngular]$ cd projetos/
+[spot@fedora projetos]$ ls
+[spot@fedora projetos]$ ng new projeto1angular
+? Would you like to enable autocompletion? This will set up your terminal so pressing TAB while typing Angular CLI commands will show possible options and autocomplete arguments. (Enabling 
+autocompletion will modify configuration files in your home directory.) Yes
+Appended `source <(ng completion script)` to `/home/spot/.bashrc`. Restart your terminal or run the following to autocomplete `ng` commands:
+
+    source <(ng completion script)
+? Would you like to share pseudonymous usage data about this project with the Angular Team
+at Google under Google's Privacy Policy at https://policies.google.com/privacy. For more
+details and how to change this setting, see https://angular.io/analytics. No
+Global setting: disabled
+Local setting: No local workspace configuration file.
+Effective status: disabled
+? Would you like to add Angular routing? Yes
+? Which stylesheet format would you like to use? CSS
+CREATE projeto1angular/README.md (1069 bytes)
+CREATE projeto1angular/.editorconfig (274 bytes)
+CREATE projeto1angular/.gitignore (548 bytes)
+CREATE projeto1angular/angular.json (2745 bytes)
+CREATE projeto1angular/package.json (1046 bytes)
+CREATE projeto1angular/tsconfig.json (901 bytes)
+CREATE projeto1angular/tsconfig.app.json (263 bytes)
+CREATE projeto1angular/tsconfig.spec.json (273 bytes)
+CREATE projeto1angular/.vscode/extensions.json (130 bytes)
+CREATE projeto1angular/.vscode/launch.json (470 bytes)
+CREATE projeto1angular/.vscode/tasks.json (938 bytes)
+CREATE projeto1angular/src/main.ts (214 bytes)
+CREATE projeto1angular/src/favicon.ico (948 bytes)
+CREATE projeto1angular/src/index.html (301 bytes)
+CREATE projeto1angular/src/styles.css (80 bytes)
+CREATE projeto1angular/src/app/app-routing.module.ts (245 bytes)
+CREATE projeto1angular/src/app/app.module.ts (393 bytes)
+CREATE projeto1angular/src/app/app.component.css (0 bytes)
+CREATE projeto1angular/src/app/app.component.html (23115 bytes)
+CREATE projeto1angular/src/app/app.component.spec.ts (1018 bytes)
+CREATE projeto1angular/src/app/app.component.ts (219 bytes)
+CREATE projeto1angular/src/assets/.gitkeep (0 bytes)
+ Packages installed successfully.
+    Directory is already under version control. Skipping initialization of git.
+[spot@fedora projetos]$ 
+#+end_example
+
+
+
+
+
+** Dando uma olhada nos arquivos do nosso projeto
+
+Daqui em diante Vou chamar o diretorio do meu projeto de projDir, tudo
+bem?
+
+
+#+NAME: export projDir=/home/spot/mnt/ext4/env-Projects-Aulas/AulasDeAngular/projetos/projeto1angular
+#+BEGIN_SRC shell :session s1 :results output :exports both 
+ export projDir=/home/spot/mnt/ext4/env-Projects-Aulas/AulasDeAngular/projetos/projeto1angular
+#+END_SRC
+
+#+RESULTS: export projDir=/home/spot/mnt/ext4/env-Projects-Aulas/AulasDeAngular/projetos/projeto1angular
+
+#+NAME:  ls -l projdir
+#+BEGIN_SRC shell :session s1 :results output :exports both 
+  cd $projDir
+  ls -l
+#+END_SRC
+
+#+RESULTS: ls -l projdir
+#+begin_example
+
+total 496
+-rw-r--r--.   1 spot spot   2745 set 28 17:08 angular.json
+drwxr-xr-x. 596 spot spot  20480 set 28 17:09 [0m[01;34mnode_modules[0m
+-rw-r--r--.   1 spot spot   1046 set 28 17:08 package.json
+-rw-r--r--.   1 spot spot 452459 set 28 17:09 package-lock.json
+-rw-r--r--.   1 spot spot   1069 set 28 17:08 README.md
+drwxr-xr-x.   4 spot spot   4096 set 28 17:08 [01;34msrc[0m
+-rw-r--r--.   1 spot spot    263 set 28 17:08 tsconfig.app.json
+-rw-r--r--.   1 spot spot    901 set 28 17:08 tsconfig.json
+-rw-r--r--.   1 spot spot    273 set 28 17:08 tsconfig.spec.json
+#+end_example
+
+
+** Executando o projet
+
+
+#+NAME: ng serve 
+#+BEGIN_SRC shell :session s1 :results output :exports both
+  cd $projDir
+  ng serve
+#+END_SRC
+
+
+[[./projetos/projeto1angular-imgs/ng-serve-output.png]]
+
+[[./projetos/projeto1angular-imgs/telainicialdoprojetorecemcriado.png]]
+
+** 
+
+** 
+
+
+
+
+
+
+** Refs
+[fn:1] https://angular.io/cli
+** 
+#+NAME:  
+#+BEGIN_SRC shell :session s1 :results output :exports both 
+
+#+END_SRC
+#+NAME:  
+#+BEGIN_SRC shell :session s1 :results output :exports both 
+
+#+END_SRC
+#+NAME:  
+#+BEGIN_SRC shell :session s1 :results output :exports both 
+
+#+END_SRC
+#+NAME:  
+#+BEGIN_SRC shell :session s1 :results output :exports both 
+
+#+END_SRC
+#+NAME:  
+#+BEGIN_SRC shell :session s1 :results output :exports both 
+
+#+END_SRC
+#+NAME:  
+#+BEGIN_SRC shell :session s1 :results output :exports both 
+
+#+END_SRC
+#+NAME:  
+#+BEGIN_SRC shell :session s1 :results output :exports both 
+
+#+END_SRC

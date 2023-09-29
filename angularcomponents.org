@@ -1,0 +1,44 @@
+#+Title: Componentes do Angular
+
+* O que são componentes do angular?
+
+
+* Crie seu primeiro componentes
+
+#+NAME:
+#+BEGIN_SRC shell :session s1 :results output :exports both
+  cd DiretorioDoSeuProjeto
+  ng generate component components/login 
+#+END_SRC
+
+  ng generate component components/login
+
+  components/login => components é o nome da pasta onde o componente
+  login vai ficar
+
+  
+  
+
+#+begin_example
+[spot@fedora projeto2angularComComponentes]$ ng generate component components/login
+CREATE src/app/components/login/login.component.css (0 bytes)
+CREATE src/app/components/login/login.component.html (20 bytes)
+CREATE src/app/components/login/login.component.spec.ts (552 bytes)
+CREATE src/app/components/login/login.component.ts (198 bytes)
+UPDATE src/app/app.module.ts (482 bytes)
+[spot@fedora projeto2angularComComponentes]$ 
+
+#+end_example
+
+
+
+
+* Refs
+[fn:1] https://angular.io/guide/component-overview
+
+
+#+NAME:
+#+BEGIN_SRC shell :session s1 :results output :exports both
+
+#+END_SRC
+
